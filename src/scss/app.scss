@@ -1,0 +1,18 @@
+// base
+
+@import 'base/normalize';
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/globales';
+
+// Componentes
+
+@import 'components/header';
+@import 'components/footer';
+@import 'components/contact';
+@import 'components/login';
+@import 'components/industrySection';
+@import 'components/services';
+@import 'components/store';
+
+

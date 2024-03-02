@@ -1,0 +1,57 @@
+#ServicesComponent {
+    .activeTabs {
+        background-color: $OrangeHD;
+        color: $white;
+        border: none;
+    }
+    button {
+        font-size: 2rem;
+        color: $white;
+        padding: 1rem;
+        cursor: pointer;
+        &:hover {
+            color: $white;
+            background-color: dark($OrangeHD, 10%)!important;
+        }
+    }
+
+}
+
+#ServiceComponent {
+        .title {
+            color: $white;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .card {
+            width: 100%;
+            height: 40rem;
+        }
+
+        .buttonNext {
+            font-size: 2rem;
+            color: $white;
+            background-color: $OrangeHD;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            &:hover {
+                color: $white;
+                background-color: dark($OrangeHD, 10%)!important;
+            }
+        }
+        
+}
+
+.buttonTime {
+    font-size: 2rem;
+    color: $white;
+    border-radius: 5px;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.description {
+    font-size: 16px;
+    color: #666;
+}

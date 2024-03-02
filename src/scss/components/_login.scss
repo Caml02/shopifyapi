@@ -1,0 +1,19 @@
+.LogoFCI-Login {
+    width: 20.5rem;
+    height: 20.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+#loginComponent {
+    .btn {
+        background-color: $OrangeHD;
+        border: none;
+        color: white;
+        &:hover {
+            background-color: #212529;
+            border: none;
+            color: white;
+        }
+    }
+}
