@@ -1,4 +1,6 @@
 import Navbar from '@/components/layout/navbar';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import { GeistSans } from 'geist/font';
 import { ensureStartsWith } from '@/lib/utils';
 import { ReactNode, Suspense } from 'react';

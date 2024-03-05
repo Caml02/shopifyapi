@@ -11,6 +11,8 @@
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
     "clsx": "^2.0.0",
     "geist": "^1.0.0",
     "next": "14.0.0",
