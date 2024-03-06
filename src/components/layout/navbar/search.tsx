@@ -23,7 +23,7 @@ export default function Search() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="d-flex form-control">
+    <form onSubmit={onSubmit} className="d-flex">
       <div className="input-group">
         <input
           key={searchParams?.get('q')}
@@ -32,7 +32,7 @@ export default function Search() {
           placeholder="Search for products..."
           autoComplete="off"
           defaultValue={searchParams?.get('q') || ''}
-          className="form-control rounded-lg border bg-white px-4 py-2 text-sm"
+          className="form-control rounded-lg border px-4 py-2 text-sm"
         />
         <button type="submit" className="btn btn-primary">
           <i className="bi bi-search"></i>

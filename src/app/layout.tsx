@@ -36,7 +36,7 @@ export const metadata = {
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={GeistSans.variable}>
-      <body className="bg-dark" data-bs-theme="dark">
+      <body  data-bs-theme="dark">
         <Navbar />
         <Suspense>
           <main>{children}</main>

@@ -64,3 +64,14 @@
     font-size: 2rem;
     line-height: 2;
 }
+
+.logoImg {
+    font-size: 10px;
+}
+
+.text-btn-cart {
+    font-size: 1.6rem;
+    &:hover {
+        color: $OrangeHD;
+    }
+}

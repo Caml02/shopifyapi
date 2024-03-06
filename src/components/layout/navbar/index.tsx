@@ -1,6 +1,5 @@
 import Cart from '@/components/cart';
 import OpenCart from '@/components/cart/open-cart';
-import LogoSquare from '@/components/logo-square';
 import { getMenu } from '@/lib/shopify';
 import { Menu } from '@/lib/shopify/types';
 import Link from 'next/link';
@@ -13,20 +12,17 @@ export default async function Navbar() {
   const menu = await getMenu('next-js-frontend-header-menu');
 
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top ">
+    <nav className="navBar navbar navbar-expand-lg">
       <div className="navbar-toggler md-none">
         <MobileMenu menu={menu} />
       </div>
-      <div className="container-fluid">
-        <div className="d-flex w-full md:w-1/3">
-          <Link href="/" className="navbar-brand">
-            <LogoSquare />
-            <div className="ml-2 flex-none text-sm font-medium uppercase md:hidden lg:block">
-              {SITE_NAME}
-            </div>
+      <div className="container-fluid justify-content-between">
+        <div className="d-flex">
+          <Link href="/" className="navbar-brand text-center m-0 ">
+              <h2 className='TitleLogo'>{SITE_NAME}</h2>
           </Link>
           {menu.length ? (
-            <ul className="hidden gap-6 text-sm md:flex md:items-center">
+            <ul className="text-center">
               {menu.map((item: Menu) => (
                 <li className='nav-item' key={item.title}>
                   <Link
@@ -40,12 +36,12 @@ export default async function Navbar() {
             </ul>
           ) : null}
         </div>
-        <div className="hidden justify-center md:flex md:w-1/3">
+        <div>
           <Search />
         </div>
-        <div className="flex justify-end md:w-1/3">
+        <div id="cartHome" className="d-flex justify-end btn btn-lg bg-primary">
           <Suspense fallback={<OpenCart />}>
-            <Cart />
+              <Cart />
           </Suspense>
         </div>
       </div>

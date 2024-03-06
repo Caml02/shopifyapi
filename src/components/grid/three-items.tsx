@@ -5,7 +5,6 @@ import Link from 'next/link';
 
 function ThreeItemGridItem({
   item,
-  size,
   priority
 }: {
   item: Product;
@@ -13,16 +12,16 @@ function ThreeItemGridItem({
   priority?: boolean;
 }) {
   return (
-    <div className={`col-md-${size === 'full' ? '4' : '2'} row-${size === 'full' ? '2' : '1'}`}>
-      <Link className="d-block position-relative aspect-square h-100 w-100" href={`/product/${item.handle}`}>
+    <div className="card border-0">
+      <Link className="d-block text-center" href={`/product/${item.handle}`}>
         <GridTileImage
           src={item.featuredImage.url}
-          fill
-          sizes={size === 'full' ? '(min-width: 768px) 66vw, 100vw' : '(min-width: 768px) 33vw, 100vw'}
+          width={250}
+          height={150}
           priority={priority}
           alt={item.title}
           label={{
-            position: size === 'full' ? 'center' : 'bottom',
+            position: 'center',
             title: item.title as string,
             amount: item.priceRange.maxVariantPrice.amount,
             currencyCode: item.priceRange.maxVariantPrice.currencyCode
@@ -36,18 +35,27 @@ function ThreeItemGridItem({
 export async function ThreeItemGrid() {
   // Collections that start with `hidden-*` are hidden from the search page.
   const homepageItems = await getCollectionProducts({
-    collection: 'hidden-homepage-featured-items'
+    collection: 'FXR'
   });
 
-  if (!homepageItems[0] || !homepageItems[1] || !homepageItems[2]) return null;
+  if (!homepageItems[0] || !homepageItems[1] || !homepageItems[2] || !homepageItems[3]) return null;
 
-  const [firstProduct, secondProduct, thirdProduct] = homepageItems;
+  const [firstProduct, secondProduct, thirdProduct, fourthProduct] = homepageItems;
 
   return (
-    <section className="mx-auto container-fluid gap-4 px-4 pb-4 row">
-      <ThreeItemGridItem size="full" item={firstProduct} priority={true} />
-      <ThreeItemGridItem size="half" item={secondProduct} priority={true} />
-      <ThreeItemGridItem size="half" item={thirdProduct} />
+    <section className="mx-auto container d-flex flex-wrap row">
+      <div className='col-md-3'>
+        <ThreeItemGridItem size="full" item={firstProduct} priority={true} />
+      </div>
+      <div className='col-md-3'>      
+        <ThreeItemGridItem size="full" item={secondProduct} priority={true} />
+      </div>
+      <div className='col-md-3'>
+        <ThreeItemGridItem size="full" item={thirdProduct} />
+      </div>
+      <div className='col-md-3'>
+        <ThreeItemGridItem size="full" item={fourthProduct} />
+      </div>
     </section>
   );
 }

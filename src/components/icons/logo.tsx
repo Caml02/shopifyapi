@@ -8,8 +8,8 @@ export default function LogoIcon(props: React.ComponentProps<'svg'>) {
     
     src={logo}
       alt="Logo"
-      height={500}
-      width={150}
+      height={300}
+      width={250}
 
     />
   );

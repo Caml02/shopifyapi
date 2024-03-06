@@ -14,19 +14,19 @@ export default async function Footer() {
   const copyrightName = COMPANY_NAME || SITE_NAME || '';
 
   return (
-    <footer className="text-muted text-small">
-      <div className="container-fluid py-4 bg-light border-top border-secondary dark:bg-dark dark:border-dark">
+    <footer className="text-muted text-md">
+      <div className="container-fluid py-4 border-top">
         <div className="row g-4">
           <div className="col-md-4">
-            <Link className="d-flex align-items-center mb-3 text-black fw-bold text-decoration-none dark:text-white" href="/">
-              <LogoSquare size="sm" />
-              <span className="ms-2">{SITE_NAME}</span>
+            <Link className="d-flex align-items-center mb-3 text-black fw-bold text-decoration-none" href="/">
+              <LogoSquare />
+              <h2 className="TitleLogo">{SITE_NAME}</h2>
             </Link>
           </div>
           <div className="col-md-4">
             <Suspense
               fallback={
-                <div className="row g-2">
+                <div className="row">
                   <div className={skeleton} />
                   <div className={skeleton} />
                   <div className={skeleton} />
