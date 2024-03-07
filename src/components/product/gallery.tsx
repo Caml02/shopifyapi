@@ -24,15 +24,15 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
   const previousUrl = createUrl(pathname, previousSearchParams);
 
   const buttonClassName =
-    'vh-full px-6 te flex align-items-center justify-content-center';
+    'vh-100 px-6 te flex align-items-center justify-content-center';
     
   return (
     <>
       <div className="position-relative">
         {images[imageIndex] && (
           <Image
-            width={150}
-            height={150}
+            width={170}
+            height={250}
             alt={images[imageIndex]?.altText as string}
             src={images[imageIndex]?.src as string}
             priority={true}
@@ -40,7 +40,7 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
         )}
 
         {images.length > 1 ? (
-          <div className="position-absolute bottom-15 d-flex w-100 justify-content-center">
+          <div className="position-absolute d-flex w-100 justify-content-center">
             <div className="mx-auto d-flex h-11 items-center rounded-full border border-white bg-light text-dark bg-opacity-80">
               <Link
                 aria-label="Previous product image"
@@ -83,8 +83,8 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
                   <GridTileImage
                     alt={image.altText}
                     src={image.src}
-                    width={120}
-                    height={120}
+                    width={250}
+                    height={180}
                     active={isActive}
                   />
                 </Link>

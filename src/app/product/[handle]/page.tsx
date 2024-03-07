@@ -81,24 +81,26 @@ export default async function ProductPage({ params }: { params: { handle: string
           __html: JSON.stringify(productJsonLd)
         }}
       />
-        <div className="mx-auto container-xl px-4">
-          <div className="d-flex flex-column rounded-lg border border-secondary bg-light p-4 dark:border-dark dark:bg-dark md:p-6 lg:flex-row lg-gap-2">
-            <div className="h-100 w-100 flex-grow-1 lg-flex-basis-50">
-            <Gallery
+        <div id='Product-Description' className="mx-auto container px-4 row text-center justify-content-center align-content-center">
+          <div className="d-flex rounded-lg rounded-5 bg-light">
+            <div className="pt-5 col-md-9">
+              <Gallery
               images={product.images.map((image: Image) => ({
                 src: image.url,
                 altText: image.altText
               }))}
-            />
-          </div>
+            />    
+            </div>
 
-          <div className="basis-full lg:basis-2/6">
+          <div className="col-md-3">
             <ProductDescription product={product} />
           </div>
         </div>
-        <Suspense>
-          <RelatedProducts id={product.id} />
-        </Suspense>
+        <div className='col-12'>
+          <Suspense>
+            <RelatedProducts id={product.id} />
+          </Suspense>
+        </div>
       </div>
       <Suspense>
         <Footer />
@@ -113,13 +115,14 @@ async function RelatedProducts({ id }: { id: string }) {
   if (!relatedProducts.length) return null;
 
   return (
-<div className="py-8">
-  <h2 className="mb-4 display-2 font-weight-bold">Related Products</h2>
-  <ul className="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-4 overflow-x-auto pt-1">
+<div className="py-4">
+  <h2 className="mb-4 fw-bold">Related Products</h2>
+  <ul className="row pt-1 list-unstyled">
     {relatedProducts.map((product) => (
-      <li key={product.handle} className="col">
+      <li key={product.handle} className="col-3">
         <Link className="d-block position-relative h-100" href={`/product/${product.handle}`}>
           <GridTileImage
+            className='card-img-top'
             alt={product.title}
             label={{
               title: product.title,

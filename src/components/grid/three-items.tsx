@@ -15,6 +15,7 @@ function ThreeItemGridItem({
     <div className="card border-0">
       <Link className="d-block text-center" href={`/product/${item.handle}`}>
         <GridTileImage
+          className='card-img-top'
           src={item.featuredImage.url}
           width={250}
           height={150}
@@ -35,7 +36,7 @@ function ThreeItemGridItem({
 export async function ThreeItemGrid() {
   // Collections that start with `hidden-*` are hidden from the search page.
   const homepageItems = await getCollectionProducts({
-    collection: 'FXR'
+    collection: 'Dyna'
   });
 
   if (!homepageItems[0] || !homepageItems[1] || !homepageItems[2] || !homepageItems[3]) return null;

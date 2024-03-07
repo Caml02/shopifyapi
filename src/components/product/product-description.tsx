@@ -7,10 +7,11 @@ import { VariantSelector } from './variant-selector';
 export function ProductDescription({ product }: { product: Product }) {
   return (
     <>
-      <div className="mb-6 d-flex flex-column border-bottom pb-6 border-dark">
-        <h1 className="mb-2 display-3 font-weight-medium">{product.title}</h1>
-        <div className="me-auto w-auto rounded-circle bg-primary p-2 text-sm text-white">
+      <div className="d-flex flex-column border-bottom pb-4">
+        <h1 className="text-black fw-bold">{product.title}</h1>
+        <div className="text-white">
           <Price
+            className='bg-primary m-2'
             amount={product.priceRange.maxVariantPrice.amount}
             currencyCode={product.priceRange.maxVariantPrice.currencyCode}
           />
@@ -20,12 +21,14 @@ export function ProductDescription({ product }: { product: Product }) {
 
       {product.descriptionHtml ? (
         <Prose
-          className="mb-6 text-sm leading-tight text-dark-60"
+          className="m-5 fw-semibold h4"
           html={product.descriptionHtml}
         />
       ) : null}
 
-      <AddToCart variants={product.variants} availableForSale={product.availableForSale} />
+      <div className='btn-block'>
+        <AddToCart variants={product.variants} availableForSale={product.availableForSale} />      
+      </div>
     </>
   );
 }

@@ -16,8 +16,8 @@ export default async function Navbar() {
       <div className="navbar-toggler md-none">
         <MobileMenu menu={menu} />
       </div>
-      <div className="container-fluid justify-content-between">
-        <div className="d-flex">
+      <div className="container-fluid d-flex row">
+        <div className="col-md-4 justify-content-start">
           <Link href="/" className="navbar-brand text-center m-0 ">
               <h2 className='TitleLogo'>{SITE_NAME}</h2>
           </Link>
@@ -36,10 +36,10 @@ export default async function Navbar() {
             </ul>
           ) : null}
         </div>
-        <div>
+        <div className='col-4'>
           <Search />
         </div>
-        <div id="cartHome" className="d-flex justify-end btn btn-lg bg-primary">
+        <div id="cartHome" className="col-md-4 d-flex justify-content-end btn ">
           <Suspense fallback={<OpenCart />}>
               <Cart />
           </Suspense>
